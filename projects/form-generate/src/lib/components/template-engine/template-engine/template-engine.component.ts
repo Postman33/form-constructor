@@ -10,7 +10,7 @@ import {LoadEntityService} from "form-generate/services/load-entity.service";
 @Component({
   selector: 'fm-template-engine',
   templateUrl: './template-engine.component.html',
-  styleUrls: ['./template-engine.component.css']
+  styleUrls: ['./template-engine.component.scss']
 })
 export class TemplateEngineComponent implements OnInit {
 

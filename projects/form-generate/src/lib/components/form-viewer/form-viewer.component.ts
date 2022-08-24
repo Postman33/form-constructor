@@ -21,7 +21,7 @@ import {ChangeDetection} from "@angular/cli/lib/config/workspace-schema";
 @Component({
   selector: 'fm-form-viewer',
   templateUrl: './form-viewer.component.html',
-  styleUrls: ['./form-viewer.component.css'],
+  styleUrls: ['./form-viewer.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class FormViewerComponent implements OnInit, AfterViewChecked {
