@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {TypeForm} from "form-generate/models/IField";
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,18 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'form-constructor';
+  fields = [
+    {
+      name: 'Пароль',
+      type: TypeForm.PASSWORD
+    },
+    {
+      name: 'Пароль',
+      type: TypeForm.CHECKBOX
+    },
+    {
+      name: 'Пароль',
+      type: TypeForm.CHECKBOX
+    },
+  ]
 }

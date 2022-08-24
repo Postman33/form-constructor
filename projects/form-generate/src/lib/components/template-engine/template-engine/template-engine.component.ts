@@ -2,6 +2,11 @@ import {Component, OnInit} from '@angular/core';
 import {IField, TypeForm} from "form-generate/models/IField";
 import {LoadEntityService} from "form-generate/services/load-entity.service";
 
+/**
+ * Движок обработки каждого поля
+ *
+ */
+
 @Component({
   selector: 'fm-template-engine',
   templateUrl: './template-engine.component.html',
@@ -18,21 +23,8 @@ export class TemplateEngineComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  public createForm() {
-    this.formGroups = [
-      {
-        name: 'Пароль',
-        type: TypeForm.PASSWORD
-      },
-      {
-        name: 'Пароль',
-        type: TypeForm.CHECKBOX
-      },
-      {
-        name: 'Пароль',
-        type: TypeForm.CHECKBOX
-      },
-    ]
+  public createForm(FG: IField[]) {
+    this.formGroups = FG;
   }
 
   public trackByFn(index: any, value: any) {

@@ -4,7 +4,7 @@ import { FormViewerComponent } from './components/form-viewer/form-viewer.compon
 import { TemplateEngineComponent } from './components/template-engine/template-engine/template-engine.component';
 import {CommonModule} from "@angular/common";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
-
+import {RouterModule} from "@angular/router";
 
 
 @NgModule({
@@ -16,7 +16,8 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
   imports: [
     CommonModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    RouterModule
   ],
   exports: [
     FormGenerateComponent,
