@@ -1,8 +1,17 @@
-import {AfterContentChecked, AfterViewChecked, AfterViewInit, Component, Input, OnInit, ViewChild} from '@angular/core';
+import {
+  AfterViewChecked,
+  ChangeDetectionStrategy,
+  ChangeDetectorRef,
+  Component,
+  Input,
+  OnInit,
+  ViewChild
+} from '@angular/core';
 import {
   TemplateEngineComponent
 } from "form-generate/components/template-engine/template-engine/template-engine.component";
 import {IField} from "form-generate/models/IField";
+import {ChangeDetection} from "@angular/cli/lib/config/workspace-schema";
 
 /**
  * Представление всей формы
@@ -12,14 +21,15 @@ import {IField} from "form-generate/models/IField";
 @Component({
   selector: 'fm-form-viewer',
   templateUrl: './form-viewer.component.html',
-  styleUrls: ['./form-viewer.component.css']
+  styleUrls: ['./form-viewer.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class FormViewerComponent implements OnInit, AfterViewChecked {
 
   @ViewChild('engine') engineComponent: TemplateEngineComponent
   @Input('fields') inputs: IField[];
 
-  constructor() {
+  constructor(private cd: ChangeDetectorRef) {
   }
 
   ngOnInit(): void {
@@ -29,6 +39,7 @@ export class FormViewerComponent implements OnInit, AfterViewChecked {
   ngAfterViewChecked(): void {
     setTimeout(() => {
       this.engineComponent.createForm(this.inputs);
+      this.cd.markForCheck();
     }, 0);
   }
 
