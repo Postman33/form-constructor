@@ -6,6 +6,7 @@ import {CommonModule} from "@angular/common";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {RouterModule} from "@angular/router";
 import { ErrorEngineComponent } from './components/template-engine/error-engine/error-engine.component';
+import { PrimitiveInputComponent } from './components/template-engine/template-engine/primitive-input/primitive-input.component';
 
 
 @NgModule({
@@ -14,6 +15,7 @@ import { ErrorEngineComponent } from './components/template-engine/error-engine/
     FormViewerComponent,
     TemplateEngineComponent,
     ErrorEngineComponent,
+    PrimitiveInputComponent,
   ],
   imports: [
     CommonModule,
