@@ -1,37 +1,31 @@
 <div class="form-group row" *ngFor="let formControl of iFields; trackBy: trackByFn" [formGroup]="inputFormGroup">
-  <ng-container *ngIf="formControl.type === types.PASSWORD">
-    <label [for]="formControl.name" class="col-sm-2 col-form-label">{{formControl?.caption || 'Текст'}}</label>
-    <div class="col-sm-10">
+  <label [for]="formControl.name" class="col-sm-2 col-form-label">{{formControl?.caption || 'Текст'}}</label>
+  <div class="col-sm-10">
+
+    <ng-container *ngIf="formControl.type === types.PASSWORD">
       <input type="password" class="form-control" [id]="formControl.name" [placeholder]="formControl.placeholder || ''"
              [formControlName]="formControl.name">
-    </div>
-    <ng-container *ngIf="inputFormGroup.get(formControl.name)?.errors !== null">
-      <div class="col-sm-2"></div>
-      <div class="col-sm-3">
-        <small class="text-danger">
-          Текст ошибки
-        </small>
-<!--        <fm-error-engine [control]="inputFormGroup.get(formControl.name) asFo"></fm-error-engine>-->
-      </div>
     </ng-container>
 
-  </ng-container>
-
-  <ng-container *ngIf="formControl.type === types.CHECKBOX">
-    <label [for]="formControl.name" class="col-sm-2 col-form-label"> {{formControl?.caption || 'Чекбокс'}} </label>
-
-    <div class="col-sm-10">
+    <ng-container *ngIf="formControl.type === types.CHECKBOX">
       <input type="checkbox" class="form-check-input" [id]="formControl.name" [formControlName]="formControl.name">
-    </div>
-  </ng-container>
+    </ng-container>
 
-  <ng-container *ngIf="formControl.type === types.FILE">
-    <label [for]="formControl.name" class="col-sm-2 col-form-label">formControl?.caption || 'Файл'</label>
-    <div class="col-sm-10">
+    <ng-container *ngIf="formControl.type === types.FILE">
       <input type="file" class="form-control-file" [id]="formControl.name" [formControlName]="formControl.name">
-    </div>
-  </ng-container>
+    </ng-container>
 
+  </div>
+  <ng-container *ngIf="inputFormGroup.get(formControl.name)?.errors !== null">
+    <div class="col-sm-2"></div>
+    <div class="col-sm-3">
+      <small class="text-danger">
+        Текст ошибки
+      </small>
+      <!--        <fm-error-engine [control]="inputFormGroup.get(formControl.name) asFo"></fm-error-engine>-->
+    </div>
+
+  </ng-container>
 
 </div>
 
