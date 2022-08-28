@@ -1,11 +1,79 @@
-<div class="form-group" *ngFor="let formControl of formGroups; trackBy: trackByFn">
-  <ng-container *ngIf="formControl.type === loadEntityService.TypeForm.PASSWORD">
-    <label for="exampleInputPassword1">Password</label>
-    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+<div class="form-group row" *ngFor="let formControl of iFields; trackBy: trackByFn" [formGroup]="inputFormGroup">
+  <ng-container *ngIf="formControl.type === types.PASSWORD">
+    <label [for]="formControl.name" class="col-sm-2 col-form-label">{{formControl?.caption || 'Текст'}}</label>
+    <div class="col-sm-10">
+      <input type="password" class="form-control" [id]="formControl.name" [placeholder]="formControl.placeholder || ''"
+             [formControlName]="formControl.name">
+    </div>
+    <ng-container *ngIf="inputFormGroup.get(formControl.name)?.errors !== null">
+      <div class="col-sm-2"></div>
+      <div class="col-sm-3">
+        <small class="text-danger">
+          Текст ошибки
+        </small>
+<!--        <fm-error-engine [control]="inputFormGroup.get(formControl.name) asFo"></fm-error-engine>-->
+      </div>
+    </ng-container>
+
   </ng-container>
 
-  <ng-container *ngIf="formControl.type === loadEntityService.TypeForm.CHECKBOX">
-    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-    <label class="form-check-label" for="exampleCheck1">Check me out</label>
+  <ng-container *ngIf="formControl.type === types.CHECKBOX">
+    <label [for]="formControl.name" class="col-sm-2 col-form-label"> {{formControl?.caption || 'Чекбокс'}} </label>
+
+    <div class="col-sm-10">
+      <input type="checkbox" class="form-check-input" [id]="formControl.name" [formControlName]="formControl.name">
+    </div>
   </ng-container>
+
+  <ng-container *ngIf="formControl.type === types.FILE">
+    <label [for]="formControl.name" class="col-sm-2 col-form-label">formControl?.caption || 'Файл'</label>
+    <div class="col-sm-10">
+      <input type="file" class="form-control-file" [id]="formControl.name" [formControlName]="formControl.name">
+    </div>
+  </ng-container>
+
+
 </div>
+
+
+<!--  <fieldset class="form-group">-->
+<!--    <div class="row">-->
+<!--      <legend class="col-form-label col-sm-2 pt-0">Radios</legend>-->
+<!--      <div class="col-sm-10">-->
+<!--        <div class="form-check">-->
+<!--          <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>-->
+<!--          <label class="form-check-label" for="gridRadios1">-->
+<!--            First radio-->
+<!--          </label>-->
+<!--        </div>-->
+<!--        <div class="form-check">-->
+<!--          <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">-->
+<!--          <label class="form-check-label" for="gridRadios2">-->
+<!--            Second radio-->
+<!--          </label>-->
+<!--        </div>-->
+<!--        <div class="form-check disabled">-->
+<!--          <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios3" value="option3" disabled>-->
+<!--          <label class="form-check-label" for="gridRadios3">-->
+<!--            Third disabled radio-->
+<!--          </label>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </fieldset>-->
+<!--  <div class="form-group row">-->
+<!--    <div class="col-sm-2">Checkbox</div>-->
+<!--    <div class="col-sm-10">-->
+<!--      <div class="form-check">-->
+<!--        <input class="form-check-input" type="checkbox" id="gridCheck1">-->
+<!--        <label class="form-check-label" for="gridCheck1">-->
+<!--          Example checkbox-->
+<!--        </label>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--  <div class="form-group row">-->
+<!--    <div class="col-sm-10">-->
+<!--      <button type="submit" class="btn btn-primary">Sign in</button>-->
+<!--    </div>-->
+<!--  </div>-->

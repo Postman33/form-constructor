@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import {TypeForm} from "form-generate/models/IField";
+import {IField, TypeForm} from "form-generate/models/IField";
+import {Validators} from "@angular/forms";
 
 @Component({
   selector: 'app-root',
@@ -8,17 +9,20 @@ import {TypeForm} from "form-generate/models/IField";
 })
 export class AppComponent {
   title = 'form-constructor';
-  fields = [
+  fields: IField[] = [
     {
       name: 'Пароль',
-      type: TypeForm.PASSWORD
+      type: TypeForm.PASSWORD,
+      defaultValue: '',
+      caption: 'Ваш пароль',
+      validators: [Validators.minLength(3), Validators.required]
     },
     {
-      name: 'Пароль',
+      name: 'Пароль1',
       type: TypeForm.CHECKBOX
     },
     {
-      name: 'Пароль',
+      name: 'Пароль2',
       type: TypeForm.CHECKBOX
     },
   ]

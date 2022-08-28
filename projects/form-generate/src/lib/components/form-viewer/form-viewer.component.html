@@ -1,6 +1,6 @@
-<form>
-  <fm-template-engine #engine></fm-template-engine>
-
-  <button type="submit" class="btn btn-primary">Submit</button>
+<form [formGroup]="formGroup" class="p-5">
+  <fm-template-engine [inputFormGroup]="formGroup" #engine></fm-template-engine>
+  <hr>
+  <button #button type="submit" class="btn btn-primary">Submit</button>
 </form>
 
