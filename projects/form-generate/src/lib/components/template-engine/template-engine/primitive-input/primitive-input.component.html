@@ -1,14 +1,16 @@
 <ng-container [formGroup]="inputFormGroup">
-<ng-container *ngIf="iField.type === types.PASSWORD">
+
+  <ng-container *ngIf="iField.type === types.PASSWORD">
     <input type="password" class="form-control" [id]="iField.name" [placeholder]="iField.placeholder || ''"
            [formControlName]="iField.name">
-</ng-container>
+  </ng-container>
 
-<ng-container *ngIf="iField.type === types.CHECKBOX">
+  <ng-container *ngIf="iField.type === types.CHECKBOX">
     <input type="checkbox" class="form-check-input" [id]="iField.name" [formControlName]="iField.name">
-</ng-container>
+  </ng-container>
 
-<ng-container *ngIf="iField.type === types.FILE">
+  <ng-container *ngIf="iField.type === types.FILE">
     <input type="file" class="form-control-file" [id]="iField.name" [formControlName]="iField.name">
-</ng-container>
+  </ng-container>
+
 </ng-container>

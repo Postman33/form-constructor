@@ -1,17 +1,18 @@
-<div class="form-group row" *ngFor="let fields of iFields; trackBy: trackByFn" [formGroup]="inputFormGroup">
-  <label [for]="fields.name" class="col-sm-2 col-form-label">{{fields?.caption || 'Текст'}}</label>
+<div class="form-group row mb-1" *ngFor="let field of iFields; trackBy: trackByFn" [formGroup]="inputFormGroup">
+  <label [for]="field.name" class="col-sm-2 col-form-label">{{field?.caption || 'Текст'}}</label>
   <div class="col-sm-10">
-    <fm-primitive-input [inputFormGroup]="inputFormGroup" [iField]="fields"></fm-primitive-input>
+    <fm-primitive-input [inputFormGroup]="inputFormGroup" [iField]="field"></fm-primitive-input>
   </div>
-  <ng-container *ngIf="inputFormGroup.get(fields.name)?.errors !== null">
+
+  <ng-container *ngIf="inputFormGroup.get(field.name)?.errors !== null">
     <div class="col-sm-2"></div>
     <div class="col-sm-3">
       <small class="text-danger">
         Текст ошибки
       </small>
+<!--      TODO: fm-error-engine-->
       <!--        <fm-error-engine [control]="inputFormGroup.get(formControl.name) asFo"></fm-error-engine>-->
     </div>
-
   </ng-container>
 
 </div>
